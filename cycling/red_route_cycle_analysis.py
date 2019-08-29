@@ -2,6 +2,7 @@ import gpxpy
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import gmplot
 
 gpx_file = open('data/red_route_cycle.gpx', 'r')
 gpx = gpxpy.parse(gpx_file)
@@ -39,3 +40,9 @@ loc = mdates.MinuteLocator(byminute=range(0, 61, 5), interval=1)  # add a tick e
 ax.xaxis.set_major_locator(loc)  # set the tick locations
 fig.autofmt_xdate()  # rotate x axis labels
 plt.show()
+
+# plot data over google map - will watermark 'for development purposes' this is as GM is no longer free
+min_lat, max_lat, min_lon, max_lon = min(df['lat']), max(df['lat']), min(df['lon']), max(df['lon'])
+googleMap = gmplot.GoogleMapPlotter(min_lat + (max_lat - min_lat) / 2, min_lon + (max_lon - min_lon) / 2, 16)
+googleMap.plot(df['lat'], df['lon'], 'blue', edge_width=1)
+googleMap.draw('gm_plot.html')
