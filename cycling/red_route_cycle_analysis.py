@@ -89,3 +89,9 @@ for index in range(len(data)):
         #### take into account elevation
         distance_vincenty_3d = sqrt(distance_vincenty_2d ** 2 + (point_elevation_difference) ** 2)
         distance_vincenty.append(distance_vincenty[-1] + distance_vincenty_3d)
+
+print('Haversine 2D: ' + str(distance_haversine_no_elevation[-1]))
+print('Vincenty 2D: ' + str(distance_vincenty_no_elevation[-1]))
+print('Haversine 3D: ' + str(distance_haversine[-1]))
+print('Vincenty 3D: ' + str(distance_vincenty[-1]))
+print('Total Time: ' + str(floor(sum(time_difference)/60)) + ' minutes ' + str(int(sum(time_difference)%60)) + ' seconds')
