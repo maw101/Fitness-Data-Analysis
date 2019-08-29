@@ -3,6 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import gmplot
+from math import sqrt, floor
+from geopy import distance
+import haversine
 
 gpx_file = open('data/red_route_cycle.gpx', 'r')
 gpx = gpxpy.parse(gpx_file)
@@ -46,3 +49,14 @@ min_lat, max_lat, min_lon, max_lon = min(df['lat']), max(df['lat']), min(df['lon
 googleMap = gmplot.GoogleMapPlotter(min_lat + (max_lat - min_lat) / 2, min_lon + (max_lon - min_lon) / 2, 16)
 googleMap.plot(df['lat'], df['lon'], 'blue', edge_width=1)
 googleMap.draw('gm_plot.html')
+
+# calculate distance values - need to first transform data as distance between two GPS points is a spherical
+#   line (NOT STRAIGHT). We will use two formulas Haversine and Vincenty.
+distance_haversine = [0]
+distance_vincenty = [0]
+elevation_difference = [0]
+time_difference = [0]
+distance_haversine_no_elevation = [0]
+distance_vincenty_no_elevation = [0]
+distance_difference_haversine_2d = [0]
+distance_difference_vincenty_2d = [0]
