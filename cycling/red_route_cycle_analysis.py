@@ -1,5 +1,7 @@
 import gpxpy
 import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
 gpx_file = open('data/red_route_cycle.gpx', 'r')
 gpx = gpxpy.parse(gpx_file)
@@ -19,3 +21,7 @@ for point in data:  # iterate over all data points adding them to the dataframe
 df.index = df.time
 
 print(df.head())  # print head of dataframe for debug
+
+# plot longitude vs latitude graph
+plt.plot(df['lon'], df['lat'])
+plt.show()
