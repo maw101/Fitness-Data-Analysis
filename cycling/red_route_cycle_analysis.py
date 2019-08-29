@@ -25,3 +25,17 @@ print(df.head())  # print head of dataframe for debug
 # plot longitude vs latitude graph
 plt.plot(df['lon'], df['lat'])
 plt.show()
+
+# plot time vs elevation
+fig, ax = plt.subplots()
+ax.plot('ele', data=df)  # plot time against elevation
+## setup titles
+ax.set_title('Time vs Elevation')
+ax.set_xlabel('Time')
+ax.set_ylabel('Elevation')
+## setup x axis labels
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))  # format timestamps to display hours and minutes only
+loc = mdates.MinuteLocator(byminute=range(0, 61, 5), interval=1)  # add a tick every 5 minutes
+ax.xaxis.set_major_locator(loc)  # set the tick locations
+fig.autofmt_xdate()  # rotate x axis labels
+plt.show()
