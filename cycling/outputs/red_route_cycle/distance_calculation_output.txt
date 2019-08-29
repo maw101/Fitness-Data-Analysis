@@ -1,0 +1,5 @@
+Haversine 2D: 5292.821588900196
+Vincenty 2D: 5303.763278091936
+Haversine 3D: 6426.308435049533
+Vincenty 3D: 6436.154723929767
+Total Time: 46 minutes 30 seconds
