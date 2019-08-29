@@ -60,3 +60,32 @@ distance_haversine_no_elevation = [0]
 distance_vincenty_no_elevation = [0]
 distance_difference_haversine_2d = [0]
 distance_difference_vincenty_2d = [0]
+
+## iterate over all data points
+for index in range(len(data)):
+    if index > 0:  # skip first data point (at index 0) as we look at previous data point on each step
+        start = data[index - 1]  # previous data point is starting point
+        stop = data[index]  # current data point is stopping point
+
+        point_elevation_difference = start.elevation - stop.elevation
+        elevation_difference.append(point_elevation_difference)
+
+        time_delta = (stop.time - start.time).total_seconds()
+        time_difference.append(time_delta)
+
+        ### calculate Haversine distances
+        distance_haversine_2d = haversine.haversine((start.latitude, start.longitude),
+                                                    (stop.latitude, stop.longitude)) * 1000
+        distance_difference_haversine_2d.append(distance_haversine_2d)
+        distance_haversine_no_elevation.append(distance_haversine_no_elevation[-1] + distance_haversine_2d)
+        #### take into account elevation
+        distance_haversine_3d = sqrt(distance_haversine_2d ** 2 + point_elevation_difference ** 2)
+        distance_haversine.append(distance_haversine[-1] + distance_haversine_3d)
+
+        ### calculate Vincenty distances
+        distance_vincenty_2d = distance.vincenty((start.latitude, start.longitude), (stop.latitude, stop.longitude)).m
+        distance_difference_vincenty_2d.append(distance_vincenty_2d)
+        distance_vincenty_no_elevation.append(distance_vincenty_no_elevation[-1] + distance_vincenty_2d)
+        #### take into account elevation
+        distance_vincenty_3d = sqrt(distance_vincenty_2d ** 2 + (point_elevation_difference) ** 2)
+        distance_vincenty.append(distance_vincenty[-1] + distance_vincenty_3d)
