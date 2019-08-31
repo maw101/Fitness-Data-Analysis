@@ -3,7 +3,7 @@ Analysis of data from a fitness tracker through use of Python, pandas and matplo
 
 ## Cycling
 
-### [Altura Trail South Loop, Lake District](https://www.forestryengland.uk/sites/default/files/documents/Whinlatter%20MTB%20Map%20Panel_2018_North%20Facing%20Orientation%20DRAFT.pdf)
+### [Altura Trail South Loop, Lake District](https://github.com/maw101/Fitness-Data-Analysis/tree/master/cycling/outputs/red_route_cycle)
 
 > The Altura Trail South Loop (Red - Difficult)
 >
