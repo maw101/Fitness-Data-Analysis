@@ -11,7 +11,7 @@ Analysis of data from a fitness tracker through use of Python, pandas and matplo
 >
 > -- From the provided [map](https://www.forestryengland.uk/sites/default/files/documents/Whinlatter%20MTB%20Map%20Panel_2018_North%20Facing%20Orientation%20DRAFT.pdf).
 
-* [View Analysis in Python](https://github.com/maw101/Fitness-Data-Analysis/blob/master/cycling/red_route_cycle_analysis.py)
-* [View Outputs](https://github.com/maw101/Fitness-Data-Analysis/tree/master/cycling/outputs/red_route_cycle)
+*  [View Analysis in Python](https://github.com/maw101/Fitness-Data-Analysis/blob/master/cycling/red_route_cycle_analysis.py)
+*  [View Outputs](https://github.com/maw101/Fitness-Data-Analysis/tree/master/cycling/outputs/red_route_cycle)
 
 Analysed latitude and longitude and plotted on a graph, looked at how elevation changed during the ride, plotted the route over a Google Satellite map, and calculated both 2D and 3D distances using both the Haversine and Vincenty methods.
