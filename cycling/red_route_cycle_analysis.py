@@ -7,7 +7,7 @@ from math import sqrt, floor
 from geopy import distance
 import haversine
 
-gpx_file = open('data/red_route_cycle.gpx', 'r')
+gpx_file = open('raw_data/red_route_cycle.gpx', 'r')
 gpx = gpxpy.parse(gpx_file)
 
 # point to data points
