@@ -62,7 +62,7 @@ distance_difference_haversine_2d = [0]
 distance_difference_vincenty_2d = [0]
 
 ## iterate over all data points
-for index in range(len(data)):
+for (index, value) in enumerate(data):
     if index > 0:  # skip first data point (at index 0) as we look at previous data point on each step
         start = data[index - 1]  # previous data point is starting point
         stop = data[index]  # current data point is stopping point
