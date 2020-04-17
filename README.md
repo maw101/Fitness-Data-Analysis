@@ -1,4 +1,7 @@
 # Fitness Data Analysis
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7e8afa31f94f4cd4870be1126ffb329e)](https://app.codacy.com/manual/maw101/Fitness-Data-Analysis?utm_source=github.com&utm_medium=referral&utm_content=maw101/Fitness-Data-Analysis&utm_campaign=Badge_Grade_Dashboard)
+
 Analysis of data from a fitness tracker through use of Python, pandas and matplotlib.
 
 ## Cycling
